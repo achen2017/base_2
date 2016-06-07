@@ -2,13 +2,13 @@
 <div id="main_body" >
 
 
-<div class="affix" id="more_content">
+<div class="affix row" id="more_content">
   <div class="col-sm-8 col-md-offset-2 row" id="hero_text">
 
     <i><h4>Word Herd helps you look at the news through Network Analytics and Natural Language Processing. It provides you groups of words that most often appear together, giving you a sense of themes and bias.</h4></i>
   </div>
 
-  <div id="goatdiv">
+  <div id="goatdiv row col-sm-8 col-md-offset-2">
 
   </div>
 
@@ -32,11 +32,11 @@
 
 
   <!-- <div class="wrapper2"> -->
-
+<div class="wrapper">
   <!-- <div class ="dynamic-div"> -->
-      <div class="row row-horizon" id="main_results">
+      <div class="row row-horizon" id="main_results" style="width:100%;">
         <% @modules.each do |mod| %>
-        <div class="col-md-2" style="z-index:-10;">
+        <div class="col-md-3" style="z-index:-10;">
           <!-- <h1>Module <%= mod %></h1> -->
           <div class="panel panel-default module-div">
 
@@ -66,42 +66,11 @@
         <% end  %>
       </div>
     <!-- </div> -->
+  </div>
 
   <!-- </div> -->
 
 
-  <!-- <script>
-  $('form#query_form').submit(function(){
-  $('button#query_myButton').prepend('<span class="glyphicon glyphicon-refresh spinning"></span>')
-  $('div#goatdiv').prepend('<p>Please be patient...Word Herd is scrapping the webs. In the meantime, check out some awesome videos?!?</p><ul><li><a href="https://www.youtube.com/watch?v=gEaAmUDEiGo">video 1</a></li><li><a href="https://www.youtube.com/watch?v=ELvsokKcydM">video 2</a></li><li><a href="https://www.youtube.com/watch?v=_yaTmPHdZVM">video 3</a></li></ul>')
-})
 
-</script> -->
 
 </div>
-
-
-
-
-
-
-<script type="text/javascript">
-    $(function () {
-
-        $(".wmd-view-topscroll").scroll(function () {
-            $(".row-horizon")
-            .scrollLeft($(".wmd-view-topscroll").scrollLeft());
-        });
-
-        $(".row-horizon").scroll(function () { //wmd-view
-            $(".wmd-view-topscroll") //wmd-view-topscroll
-            .scrollLeft($(".wmd-view").scrollLeft());
-        });
-
-    });
-
-    $(window).load(function () {
-        $('.scroll-div').css('width', $('.row-horizon').outerWidth() );
-        // $('.scroll-div').css('width', $('.main_body').outerWidth() );
-    });
-</script>

@@ -4505,11 +4505,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-color: transparent;
 }
 .navbar-default .navbar-brand {
-  color: #666666;
+  color: #0c84e4;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #0c84e4;
+  color: #ff9800;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
