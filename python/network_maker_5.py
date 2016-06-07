@@ -12,7 +12,7 @@ import os
 
 import shutil
 
-base_dir = '/Users/abrahamchen/Documents/NETWORKS/ind_study_code/base_2/'
+base_dir = '/Users/abrahamchen/Documents/NETWORKS/ind_study_code/base_2/' #LIVE
 
 #makes a new folder
 def makemydir():
@@ -93,7 +93,7 @@ class Big:
         #here we write graph data into pajek form from edgelist, which can be used by infomap to do more network analysis.
         G = nx.Graph()
         G.add_edges_from(self.edgelist)
-        nx.write_pajek(G, base_dir + 'python/temporary_folder/' + file_name + '.net')   ### #change would have to change
+        nx.write_pajek(G, 'python/temporary_folder/' + file_name + '.net')   ### #change would have to change #LIVE
 
         #here, we're executing infomap in the shell to get infomap's capability (access to modularity)
         os.system(infomap_command)
@@ -106,7 +106,7 @@ class Big:
         ### where each each element contains information about each node. Information is:
         ### module name in the form "1:2" where 1 is larger module, and 2 is smaller module
         ### then there are two items that I don't understand and a final entry that is the id of the node.
-        tree_text = open(base_dir + 'python/temporary_folder/' + file_name +'.tree').readlines()    ### #change, should change dynamically
+        tree_text = open('python/temporary_folder/' + file_name +'.tree').readlines()    ### #change, should change dynamically #LIVE
 
         line_array = []
         self.final_array = []
@@ -125,7 +125,7 @@ class Big:
 
     def completer(self, file_name):
         ### this block opens the pajeks file back up, and reads it (we probably don't need to write Pajeks to a file) and then
-        node_net = open(base_dir + 'python/temporary_folder/' + file_name +'.net').readlines()
+        node_net = open('python/temporary_folder/' + file_name +'.net').readlines() #LIVE
         self.node_array = []
         for line in node_net:
             self.node_array.append(line.split(' '))
@@ -179,7 +179,8 @@ def network_main(subject, article_dump):
 
     # infomap_command = "python/Infomap/Infomap python/temporary_folder/" + file_name + ".net python/temporary_folder/ -N 10 --tree" ### #change we have to change the paths used here
     # /Users/abrahamchen/Documents/NETWORKS/ind_study_code/base_2/python/temporary_folder/Hilary.net
-    infomap_command = "/Users/abrahamchen/Documents/NETWORKS/ind_study_code/base_2/python/Infomap/Infomap /Users/abrahamchen/Documents/NETWORKS/ind_study_code/base_2/python/temporary_folder/" + file_name + ".net /Users/abrahamchen/Documents/NETWORKS/ind_study_code/base_2/python/temporary_folder/ -N 10 --tree"
+    # infomap_command = "/Users/abrahamchen/Documents/NETWORKS/ind_study_code/base_2/python/Infomap/Infomap /Users/abrahamchen/Documents/NETWORKS/ind_study_code/base_2/python/temporary_folder/" + file_name + ".net /Users/abrahamchen/Documents/NETWORKS/ind_study_code/base_2/python/temporary_folder/ -N 10 --tree"   #LIVE
+    infomap_command = "python/Infomap/Infomap python/temporary_folder/" + file_name + ".net python/temporary_folder/ -N 10 --tree"   #LIVE
 
 
     # /Users/abrahamchen/Documents/NETWORKS/ind_study_code/base_2/python/Infomap/Infomap
