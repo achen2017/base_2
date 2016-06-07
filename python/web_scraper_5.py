@@ -29,7 +29,8 @@ def word_counter(article_dump):
     return(counted_words)
 
 def packager(complete_array, query_id, subject, date, the_time, counter):
-    conn = lite.connect("/Users/abrahamchen/Documents/NETWORKS/ind_study_code/base_2/db/development.sqlite3")
+    conn = lite.connect("db/development.sqlite3") #Live
+    # conn = lite.connect("/Users/abrahamchen/Documents/NETWORKS/ind_study_code/base_2/db/development.sqlite3")
     cursor = conn.cursor()
     # cursor.execute("INSERT INTO queries VALUES (?, ?, ?, ?, ?, ?);", (1, 'subject', 'subject', 'subject', date, the_time))
 

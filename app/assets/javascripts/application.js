@@ -25,12 +25,57 @@
 //
 //
 
-$(function(){
-  $('form#query_form').submit(function(){
-    $('button#query_myButton').prepend('<span class="glyphicon glyphicon-refresh spinning"></span>');
-    $('div#goatdiv').prepend('<p>Please be patient...Word Herd is scrapping the webs. In the meantime, check out some awesome videos?!?</p><ul><li><a href="https://www.youtube.com/watch?v=gEaAmUDEiGo">video 1</a></li><li><a href="https://www.youtube.com/watch?v=ELvsokKcydM">video 2</a></li><li><a href="https://www.youtube.com/watch?v=_yaTmPHdZVM">video 3</a></li></ul>')
-  });
+// $(function(){
+//   $('form#query_form').submit(function(){
+//     $('button#query_myButton').prepend('<span class="glyphicon glyphicon-refresh spinning"></span>');
+//     $('div#goatdiv').prepend('<p>Please be patient...Word Herd is scrapping the webs. In the meantime, check out some awesome videos?!?</p><ul><li><a href="https://www.youtube.com/watch?v=gEaAmUDEiGo">video 1</a></li><li><a href="https://www.youtube.com/watch?v=ELvsokKcydM">video 2</a></li><li><a href="https://www.youtube.com/watch?v=_yaTmPHdZVM">video 3</a></li></ul>')
+//   });
+//
+//
+//
+// });
+// $(document).ready(function() {
+//     $('form#query_form').keyup(function() {
+//
+//         var empty = false;
+//         $('.query_field input').each(function() {
+//             if ($(this).val().length == 0) {
+//                 empty = true;
+//             }
+//         });
+//
+//         if (empty) {
+//             $('.form-group button').attr('disabled', 'disabled');
+//         } else {
+//             $('.form-group button').removeAttr('disabled');
+//         }
+//     });
+// });
+$(document).ready(function() {
+    $('form#query_form').keyup(function() {
 
-  
+        var empty = false;
+        $('.query_field input').each(function() {
+            if ($(this).val().length == 0) {
+                empty = true;
+            }
+        });
 
+        if (empty) {
+            $('.form-group button').attr('disabled', 'disabled');
+        } else {
+            $('.form-group button').removeAttr('disabled');
+        }
+
+    });
+
+
+
+
+
+});
+
+$('form#query_form').submit(function(){
+  $('button#query_myButton').prepend('<span class="glyphicon glyphicon-refresh spinning"></span>');
+  $('div#goatdiv').prepend('<p>Please be patient...Word Herd is scrapping the webs. In the meantime, check out some awesome videos?!?</p><ul><li><a href="https://www.youtube.com/watch?v=gEaAmUDEiGo">video 1</a></li><li><a href="https://www.youtube.com/watch?v=ELvsokKcydM">video 2</a></li><li><a href="https://www.youtube.com/watch?v=_yaTmPHdZVM">video 3</a></li></ul>')
 });
