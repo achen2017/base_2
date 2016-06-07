@@ -2,7 +2,7 @@
 <div id="main_body" >
 
 
-
+<div class="affix" id="more_content">
   <div class="col-sm-8 col-md-offset-2 row" id="hero_text">
 
     <i><h4>Word Herd helps you look at the news through Network Analytics and Natural Language Processing. It provides you groups of words that most often appear together, giving you a sense of themes and bias.</h4></i>
@@ -26,23 +26,19 @@
       Delete displayed query
     </a>
   </div>
+</div>
 
 
 
-  <div class="wmd-view-topscroll">
-      <div class="scroll-div">
-          &nbsp;
-      </div>
-  </div>
 
   <!-- <div class="wrapper2"> -->
-<div class="wmd-view">
-  <div class ="dynamic-div">
-      <div class="row row-horizon" >
+
+  <!-- <div class ="dynamic-div"> -->
+      <div class="row row-horizon" id="main_results">
         <% @modules.each do |mod| %>
-        <div class="col-md-3">
+        <div class="col-md-2" style="z-index:-10;">
           <!-- <h1>Module <%= mod %></h1> -->
-          <div class="panel panel-default">
+          <div class="panel panel-default module-div">
 
 
             <div class="panel-body">
@@ -50,13 +46,13 @@
               <% @data.each do |datum| %>
               <% if datum['module'].split(":")[0] == mod  %>
               <div class="panel">
-                <div class="panel=body">
+                <div class="panel=body word-div" >
                   <!-- <% sizer = Math.log((datum.freq^10)*10000)  %> -->
                   <% sizer = datum.freq * 10  %>
                   <% if sizer > 30 %>
                   <% sizer = 30 %>
                   <% end %>
-                  <p style="font-size:<%= sizer %>px"><%= datum.word %></p>
+                  <p style="font-size:<%= sizer %>px;" class="word-div"><%= datum.word %></p>
                 </div>
 
               </div>
@@ -69,7 +65,7 @@
         </div>
         <% end  %>
       </div>
-    </div>
+    <!-- </div> -->
 
   <!-- </div> -->
 
@@ -81,7 +77,7 @@
 })
 
 </script> -->
-</div>
+
 </div>
 
 
@@ -93,12 +89,12 @@
     $(function () {
 
         $(".wmd-view-topscroll").scroll(function () {
-            $(".wmd-view")
+            $(".row-horizon")
             .scrollLeft($(".wmd-view-topscroll").scrollLeft());
         });
 
-        $(".wmd-view").scroll(function () {
-            $(".wmd-view-topscroll")
+        $(".row-horizon").scroll(function () { //wmd-view
+            $(".wmd-view-topscroll") //wmd-view-topscroll
             .scrollLeft($(".wmd-view").scrollLeft());
         });
 
@@ -106,5 +102,6 @@
 
     $(window).load(function () {
         $('.scroll-div').css('width', $('.row-horizon').outerWidth() );
+        // $('.scroll-div').css('width', $('.main_body').outerWidth() );
     });
 </script>
