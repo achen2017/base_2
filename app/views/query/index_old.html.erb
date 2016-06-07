@@ -1,0 +1,74 @@
+<div class="page-header">
+  <h1 class="col-md-offset-5">Word Herd</h1>
+
+</div>
+
+<form class="form-horizontal col-md-offset-3" action="http://localhost:3000/start_query">
+
+  <!-- Label and input for title -->
+  <div class="form-group">
+    <label for="query" class="col-sm-3 control-label">
+      What do you want to look up?
+    </label>
+
+    <div class="col-sm-4">
+      <input type="text" id="query" name="query" placeholder="Query" class="form-control">
+    </div>
+
+
+    <button type="submit" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+    Launch Query
+
+
+  </button>
+  <% if @run_spin == TRUE %>
+  <div class="spinner">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
+  <% end %>
+</div>
+
+
+  </div>
+</form>
+
+<div class="page-header">
+  <% if @query != FALSE %>
+    <h3 class="col-md-offset-1">The Results for <%= @query.query %></h3>
+  <% else %>
+    <h3>   </h3>
+  <% end %>
+</div>
+
+
+<link rel="stylesheet" href="/bootstrap-horizon.css">
+
+<div class="row row-horizon">
+  <% @modules.each do |mod| %>
+  <div class="col-md-3">
+      <h1>Module <%= mod %></h1>
+    <div class="panel panel-default">
+
+
+      <div class="panel-body">
+
+        <% @data.each do |datum| %>
+          <% if datum['module'].split(":")[0] == mod  %>
+            <div class="panel">
+              <div class="panel=body">
+                <p><%= datum.word %></p>
+              </div>
+
+            </div>
+          <% end %>
+
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+  <% end  %>
+</div>

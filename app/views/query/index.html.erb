@@ -1,0 +1,110 @@
+
+<div id="main_body" >
+
+
+
+  <div class="col-sm-8 col-md-offset-2 row" id="hero_text">
+
+    <i><h4>Word Herd helps you look at the news through Network Analytics and Natural Language Processing. It provides you groups of words that most often appear together, giving you a sense of themes and bias.</h4></i>
+  </div>
+
+  <div id="goatdiv">
+
+  </div>
+
+  <div class="row">
+    <% if @query != FALSE %>
+    <h5 class="col-md-offset-2 col-md-6">&nbsp;&nbsp;&nbsp;Resulting groups for "<%= @query.query %>"</h5>
+    <% else %>
+    <h3>   </h3>
+    <% end %>
+
+
+  </div>
+  <div class="row" id="row_for_delete">
+    <a href="/delete_newest" class="col-md-offset-2 btn-link" rel="nofollow" style="margin-left:" id="delete_button">
+      Delete displayed query
+    </a>
+  </div>
+
+
+
+  <div class="wmd-view-topscroll">
+      <div class="scroll-div">
+          &nbsp;
+      </div>
+  </div>
+
+  <!-- <div class="wrapper2"> -->
+<div class="wmd-view">
+  <div class ="dynamic-div">
+      <div class="row row-horizon" >
+        <% @modules.each do |mod| %>
+        <div class="col-md-3">
+          <!-- <h1>Module <%= mod %></h1> -->
+          <div class="panel panel-default">
+
+
+            <div class="panel-body">
+
+              <% @data.each do |datum| %>
+              <% if datum['module'].split(":")[0] == mod  %>
+              <div class="panel">
+                <div class="panel=body">
+                  <!-- <% sizer = Math.log((datum.freq^10)*10000)  %> -->
+                  <% sizer = datum.freq * 10  %>
+                  <% if sizer > 30 %>
+                  <% sizer = 30 %>
+                  <% end %>
+                  <p style="font-size:<%= sizer %>px"><%= datum.word %></p>
+                </div>
+
+              </div>
+              <% end %>
+
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+        <% end  %>
+      </div>
+    </div>
+
+  <!-- </div> -->
+
+
+  <!-- <script>
+  $('form#query_form').submit(function(){
+  $('button#query_myButton').prepend('<span class="glyphicon glyphicon-refresh spinning"></span>')
+  $('div#goatdiv').prepend('<p>Please be patient...Word Herd is scrapping the webs. In the meantime, check out some awesome videos?!?</p><ul><li><a href="https://www.youtube.com/watch?v=gEaAmUDEiGo">video 1</a></li><li><a href="https://www.youtube.com/watch?v=ELvsokKcydM">video 2</a></li><li><a href="https://www.youtube.com/watch?v=_yaTmPHdZVM">video 3</a></li></ul>')
+})
+
+</script> -->
+</div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+
+        $(".wmd-view-topscroll").scroll(function () {
+            $(".wmd-view")
+            .scrollLeft($(".wmd-view-topscroll").scrollLeft());
+        });
+
+        $(".wmd-view").scroll(function () {
+            $(".wmd-view-topscroll")
+            .scrollLeft($(".wmd-view").scrollLeft());
+        });
+
+    });
+
+    $(window).load(function () {
+        $('.scroll-div').css('width', $('.row-horizon').outerWidth() );
+    });
+</script>

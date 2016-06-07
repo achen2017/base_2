@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  query_id: 1
+  word: MyString
+  module: MyString
+  freq: 1
+  flow: 9.99
+
+two:
+  query_id: 1
+  word: MyString
+  module: MyString
+  freq: 1
+  flow: 9.99

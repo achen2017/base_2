@@ -1,0 +1,44 @@
+
+
+<div>
+  <a href="/delete/<%= @query.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+</div>
+<div class="page-header">
+  <% if @query != FALSE %>
+    <h3 class="col-md-offset-1">The Results for <%= @query.query %></h3>
+  <% else %>
+    <h3>   </h3>
+  <% end %>
+</div>
+
+
+<link rel="stylesheet" href="/bootstrap-horizon.css">
+
+<div class="row row-horizon">
+  <% @modules.each do |mod| %>
+  <div class="col-md-3">
+      
+    <div class="panel panel-default">
+
+
+      <div class="panel-body">
+
+        <% @data.each do |datum| %>
+          <% if datum['module'].split(":")[0] == mod  %>
+            <div class="panel">
+              <div class="panel=body">
+                <p><%= datum.word %></p>
+              </div>
+
+            </div>
+          <% end %>
+
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+  <% end  %>
+</div>

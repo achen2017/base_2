@@ -1,0 +1,83 @@
+
+#main_body {
+  padding-top: 100px;
+
+
+}
+
+#row_for_delete {
+  padding-bottom: 30px;
+
+  }
+
+#hero_text {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: thick solid #8c8c8c;
+  opacity: .8;
+}
+#delete_button {
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+
+}
+
+#top_row_about {
+  padding-top: 10px;
+}
+
+#second_row_about {
+  padding-top: 60px;
+}
+
+.navbar-brand {
+  font-size: 30px;
+
+}
+
+
+/*background-color: #ffffff;
+border-color: transparent;*/
+
+
+
+wmd-view-topscroll, .wmd-view {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 300px;
+    border: none 0px RED;
+}
+
+.wmd-view-topscroll { height: 20px; }
+.wmd-view { height: 200px; }
+.scroll-div1 {
+    width: 1000px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.scroll-div2 {
+    width: 1000px;
+    height:20px;
+}
+
+
+
+.wmd-view-topscroll, .wmd-view
+{
+    overflow-x: auto;
+    /*overflow-y: hidden;*/
+    /*width: 1000px;*/
+    width: 100%;
+    height: 100%;
+}
+
+.wmd-view-topscroll
+{
+    height: 16px;
+}
+
+.dynamic-div
+{
+    display: inline-block;
+}
