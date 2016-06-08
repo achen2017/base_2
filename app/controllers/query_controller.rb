@@ -89,7 +89,7 @@ class QueryController < ApplicationController
 
 
 
-    redirect_to("http://localhost:3000/")
+    redirect_to("/")
   end
 
   def destroy_newest ### This is used for the homepage
@@ -98,7 +98,7 @@ class QueryController < ApplicationController
       @query.destroy
       @data = Datum.where(:query_id => a)
       @data.destroy_all
-      redirect_to("http://localhost:3000/")
+      redirect_to("/")
   end
 
   def destroy_selected ### destroy the item selected (This is used for the show pages)
@@ -107,7 +107,7 @@ class QueryController < ApplicationController
     @query.destroy
     @data = Datum.where(:query_id => a)
     @data.destroy_all
-    redirect_to("http://localhost:3000/")
+    redirect_to("/")
   end
 
 end
