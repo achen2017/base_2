@@ -74,29 +74,3 @@
 
 
 </div>
-
-
-
-
-
-
-<script type="text/javascript">
-$(document).ready(function() {
-    $('form#query_form').keyup(function() {
-
-        var empty = false;
-        $('.query_field input').each(function() {
-            if ($(this).val().length == 0) {
-                empty = true;
-            }
-        });
-
-        if (empty) {
-            $('.form-group button').attr('disabled', 'disabled');
-        } else {
-            $('.form-group button').removeAttr('disabled');
-        }
-
-    });
-});
-</script>
